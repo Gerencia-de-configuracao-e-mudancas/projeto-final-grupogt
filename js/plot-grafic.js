@@ -1,0 +1,1 @@
+//Script dedicado as configurações dos gráficos
