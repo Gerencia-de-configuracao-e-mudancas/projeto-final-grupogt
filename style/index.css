@@ -41,7 +41,7 @@
     background-color: rgb(207, 207, 207);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: .2fr .4fr 1fr;
+    grid-template-rows: .15fr .25fr 1fr;
     grid-template-areas: "user-zone"
                         "dash-zone"
                         "plot-zone";
@@ -54,6 +54,24 @@
 #user-zone {
     grid-area: user-zone;
     background-color: rgb(158, 158, 158);
+    display: grid;
+    grid-template-columns: .7fr .3fr;
+    grid-template-rows: 100%;
+    gap: 5px;
+    grid-template-areas: "month user-data";
+    width: 100%;
+    height: 100%;
+}
+
+/*Zonas dos user-zona*/
+#month {
+    grid-area: month;
+    background-color: aliceblue;
+}
+
+#user-data {
+    grid-area: user-data;
+    background-color: aliceblue;
 }
 
 #dash-zone {
@@ -64,4 +82,44 @@
 #plot-zone {
     grid-area: plot-zone;
     background-color: rgb(158, 158, 158);
+}
+
+/*Lista com os resumos financeiras*/
+#dash-zone > ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#dash-zone > ul > li{
+    width: 250px;
+    height: 90px;
+    border-radius: 15px;
+    margin: 0 10px;
+    background-color: rgb(120, 109, 163);
+}
+
+/*Itens do menu de navegação*/
+#navegation > ul{
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    height: 50%;
+    list-style: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navegation > ul > li {
+    font: normal normal .9em 'open-sans', sans-serif;
+    color: rgb(0, 0, 0);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
 }
