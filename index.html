@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="controle, gestao, gastos, organizar">
-    <meta name="description" content="Site desenvolvido com o intuito de ajudar os clientes a controlarem sua vida financeira">
+    <meta name="description"
+        content="Site desenvolvido com o intuito de ajudar os clientes a controlarem sua vida financeira">
     <meta name="author" content="Cauã Pires Soares">
     <meta name="author" content="Victor Ivis">
     <meta name="author" content="Daniel Lima Fernandes">
     <link rel="stylesheet" href="./style/index.css">
     <title>Organize</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-K6gG/ZXQ6OiJ+elGz6ZM3z5iWWziCU+MfWwH1voAT4jcUGFeU0mMrbLp3z5lO/FJotgyo8Fef3krIzW88RhBAA=="
+        crossorigin="anonymous" />
 </head>
+
 <body id="container">
+    <script src="https://kit.fontawesome.com/b3b34daf48.js" crossorigin="anonymous"></script>
 
     <section id="navegation">
         <ul>
-            <li>home</li>
-            <li>resumo</li>
-            <li>ad gasto</li>
-            <li>configs</li>
-            <li>mais</li>
+            <li class="left">
+                <i class="fa-solid fa-house"></i>
+            </li>
+            <li class="left">
+                <i class="fas fa-wallet"></i>
+            </li>
+            <li class="left">
+                <i class="fas fa-plus"></i>
+            </li>
+            <li class="left">
+                <i class="fa-solid fa-gear"></i>
+            </li>
+            <li class="left">
+                <i class="fas fa-ellipsis-h"></i>
+            </li>
         </ul>
     </section>
 
@@ -35,14 +52,30 @@
 
         <section id="dash-zone">
             <ul>
-                <li>Saldo atual</li>
-                <li>Receita</li>
-                <li>Despesass</li>
-                <li>Cartão de crédito</li>
+                <li class="box">Saldo atual
+                    <p>R$ 1200,0</p>
+
+                    <div class="icone"> <i class="fa-solid fa-trash"></i> </div>
+                </li>
+                <li class="box">Receita
+                    <p>R$ 1200,0</p>
+
+                    <div class="icone"> <i class="fa-solid fa-arrow-up" style="color: green;""></i> </div>
+                </li>
+                <li class=" box">Despesass
+                            <p>R$ 1200,0</p>
+
+                            <div class="icone"><i class="fa-solid fa-arrow-down" style="color: red;"></i></div>
+                </li>
+                <li class="box">Cartão de crédito
+                    <p>R$ 1200,0</p>
+
+                    <div class="icone"> <i class="fa-solid fa-credit-card"></i> </div>
+                </li>
             </ul>
         </section>
         <section id="plot-zone">Plot dos gráficos</section>
     </section>
-
 </body>
+
 </html>
