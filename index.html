@@ -12,9 +12,6 @@
     <meta name="author" content="Daniel Lima Fernandes">
     <link rel="stylesheet" href="./style/index.css">
     <title>Organize</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-K6gG/ZXQ6OiJ+elGz6ZM3z5iWWziCU+MfWwH1voAT4jcUGFeU0mMrbLp3z5lO/FJotgyo8Fef3krIzW88RhBAA=="
-        crossorigin="anonymous" />
 </head>
 
 <body id="container">
@@ -74,8 +71,13 @@
                 </li>
             </ul>
         </section>
-        <section id="plot-zone">Plot dos gráficos</section>
+        <section id="plot-zone">
+            <canvas id="myChart"></canvas>
+        </section>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/plot-grafic.js"></script>
 </body>
 
 </html>

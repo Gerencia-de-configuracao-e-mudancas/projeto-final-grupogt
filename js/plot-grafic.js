@@ -18,7 +18,7 @@ function criarGrafico(id, valoresX, valoresY, tipo, cores, titulo, legenda){
         mostrarTitulo = true;
     }
     new Chart(id, {
-        type: tipo,
+        type: 'doughnut',
         data: {
             labels: valoresX,
             datasets: [{
@@ -39,4 +39,3 @@ function criarGrafico(id, valoresX, valoresY, tipo, cores, titulo, legenda){
 }
 
 criarGrafico("myChart", ["Casa", "Escola", "Lazer"], ["2300.20", "430.00", "523.60"], "pie");
-criarGrafico("linha", [50,60,70,80,90,100,110,120,130,140,150], [7,8,8,9,9,9,10,11,14,14,15]);
