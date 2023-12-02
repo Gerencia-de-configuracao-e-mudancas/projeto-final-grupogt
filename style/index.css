@@ -42,6 +42,29 @@
     font-size: 100px;
 }
 
+a {
+    text-decoration: none;
+    color: #0077cc;
+    transition: color 0.3s ease;
+    text-decoration: underline;
+    padding: 5px 10px; 
+    text-transform: uppercase; 
+    transition: text-transform 0.3s ease; 
+}
+
+a:hover {
+    color: #004466;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+
+#navegation li a .font-link{
+    width: 100px;
+    height: 100px;
+    display: block;
+    cursor: pointer;
+  }
+
 /*area de dashboard, onde os resumos mensais aparecerão, bem como informações o perfil, conta e gráficos*/
 #dashboard {
     grid-area: dashboard;
