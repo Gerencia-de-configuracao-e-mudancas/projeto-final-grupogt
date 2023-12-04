@@ -5,6 +5,10 @@
     --cor-theme: rgb(27, 27, 27);
 }
 
+body {
+    background-color: rgb(236, 243, 251);
+}
+
 /*Ajustes gerais*/
 *{
     margin: 0;
@@ -21,7 +25,7 @@
 /*Definidno áreas do container*/
 #container {
     display: grid;
-    grid-template-columns: .10fr 1fr;
+    grid-template-columns: .07fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "navegation dashboard";
     gap: 10px;
@@ -32,7 +36,7 @@
 /*Areas do display grid container*/
 #navegation {
     grid-area: navegation;
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(255, 255, 255);
 }
 
 .left {
@@ -42,23 +46,34 @@
     font-size: 100px;
 }
 
-a {
-    text-decoration: none;
-    color: #0077cc;
-    transition: color 0.3s ease;
-    text-decoration: underline;
-    padding: 5px 10px; 
-    text-transform: uppercase; 
-    transition: text-transform 0.3s ease; 
+/*Botão que expande o menu vetical*/
+ul > li.more-option {
+    font-size: 1.2em;
+    background-color: rgb(102, 22, 221);
+    padding: 12px;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
 }
 
+ul > li > a {
+    color: rgb(255, 255, 255);
+}
+
+/*Detalhes dos links*/
+a {
+    padding: 5px 10px; 
+    color: rgb(54, 54, 54);
+    font-size: 1.15em;
+}
+
+
 a:hover {
-    color: #004466;
+    color: rgb(79, 39, 138);
     text-decoration: none;
     text-transform: lowercase;
   }
 
-#navegation li a .font-link{
+ .font-link{
     width: 100px;
     height: 100px;
     display: block;
@@ -68,10 +83,9 @@ a:hover {
 /*area de dashboard, onde os resumos mensais aparecerão, bem como informações o perfil, conta e gráficos*/
 #dashboard {
     grid-area: dashboard;
-    background-color: rgb(207, 207, 207);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: .15fr .25fr 1fr;
+    grid-template-rows: .15fr .14fr 1fr;
     grid-template-areas: "user-zone"
                         "dash-zone"
                         "plot-zone";
@@ -86,24 +100,33 @@ a:hover {
     justify-content: space-around;
 }
 
-.icone {
+.icone1, .icone2, .icone3, .icone4 {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-top: 25px;
-    margin-right: 10px;
-   
-    background-color: aliceblue;
-    
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    background-color: rgb(2, 149, 206);
+    color: rgb(255, 255, 255);
+}
+
+.icone2 {
+    background-color: rgb(78, 177, 80);
+}
+
+.icone3 {
+    background-color: rgb(244, 66, 55);
+}
+
+.icone4 {
+    background-color: rgb(0, 122, 109);
 }
 
 /*Definindo as áreas que serão utilizadas no dashboard*/
 #user-zone {
     grid-area: user-zone;
-    background-color: rgb(158, 158, 158);
     display: grid;
     grid-template-columns: .7fr .3fr;
     grid-template-rows: 100%;
@@ -116,22 +139,28 @@ a:hover {
 /*Zonas dos user-zona*/
 #month {
     grid-area: month;
-    background-color: aliceblue;
 }
 
 #user-data {
     grid-area: user-data;
-    background-color: aliceblue;
 }
 
 #dash-zone {
     grid-area: dash-zone;
-    background-color: rgb(158, 158, 158);
 }
 
 #plot-zone {
     grid-area: plot-zone;
-    background-color: rgb(158, 158, 158);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 50px 0 0 10px;
+}
+
+#plot-zone > div > div {
+    height: 340px;
+    width: 340px;
+    margin: auto;
 }
 
 /*Lista com os resumos financeiras*/
@@ -146,11 +175,15 @@ a:hover {
 }
 
 #dash-zone > ul > li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 250px;
-    height: 90px;
+    height: 100%;
     border-radius: 15px;
     margin: 0 10px;
-    background-color: rgb(120, 109, 163);
+    background-color: rgb(255, 255, 255);
+    box-shadow:  2px 2px 2px 0px rgb(192, 192, 192);
 }
 
 /*Itens do menu de navegação*/
@@ -158,18 +191,53 @@ a:hover {
     display: flex;
     margin-top: 50px;
     width: 100%;
-    height: 50%;
+    height: 60%;
     list-style: none;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
 
-#navegation > ul > li {
+#navegation > ul > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    margin-top: 20px;
+}
+
+#navegation > ul > div > li {
     font: normal normal .9em 'open-sans', sans-serif;
     color: rgb(0, 0, 0);
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+/*Caixas dos resumos*/
+.box > ul {
+    list-style: none;
+}
+
+.box > ul > li {
+    margin: 0;
+}
+
+.box > ul > li:nth-child(1) {
+    font: normal lighter .75em 'open-sans';
+    color: rgb(49, 49, 49);
+}
+
+/*Ajustando o gráfico principal*/
+#cont-plot {
     background-color: rgb(255, 255, 255);
+    box-shadow:  2px 2px 2px 0px rgb(192, 192, 192);
+    border-radius: 15px;
+    width: 580px;
+    height: 400px;
+    padding-top: 15px;
+}
+
+.sumir {
+    transform: translateY(-300px);
+    filter: opacity(0%);
 }

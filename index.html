@@ -19,26 +19,28 @@
 
     <section id="navegation">
         <ul>
-            <li class="left">
-                <a href="./SRC/home.html"> <i class="fa-solid fa-house" class="font-link"></i>
-                </a>
+            <li class="left more-option">
+                <i class="fas fa-plus" id="more-menu" class="font-link"></i>
+
             </li>
-            <li class="left">
-                <a href="./SRC/resumo.html"> <i class="fas fa-wallet" class="font-link"></i> 
-                </a>
-            </li>
-            <li class="left">
-                <a href="./SRC/mais.html"> <i class="fas fa-plus" class="font-link"></i> 
-                </a>
-            </li>
-            <li class="left">
-                <a href="./SRC/conf.html"> <i class="fa-solid fa-gear" class="font-link"></i>
-                </a>
-            </li>
-            <li class="left">
-                <a href="./SRC/inf.html"> <i class="fas fa-ellipsis-h" class="font-link"></i>
-                </a>
-            </li>
+            <div id="menu" class="sumir">
+                <li class="left">
+                    <a href="./SRC/home.html"> <i class="fa-solid fa-house" class="font-link"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="./SRC/resumo.html"> <i class="fas fa-wallet" class="font-link"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="./SRC/conf.html"> <i class="fa-solid fa-gear" class="font-link"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="./SRC/inf.html"> <i class="fas fa-ellipsis-h" class="font-link"></i>
+                    </a>
+                </li>
+            </div>
         </ul>
     </section>
 
@@ -54,33 +56,51 @@
 
         <section id="dash-zone">
             <ul>
-                <li class="box">Saldo atual
-                    <p>R$ 1200,0</p>
+                <li class="box">
+                    <ul>
+                        <li>Saldo Atual</li>
+                        <li><strong>R$ 2.300,00</strong></li>
+                    </ul>
 
-                    <div class="icone"> <i class="fa-solid fa-trash"></i> </div>
+                    <div class="icone1"> <i class="fas fa-list"></i></i> </div>
                 </li>
-                <li class="box">Receita
-                    <p>R$ 1200,0</p>
+                <li class="box">
+                    <ul>
+                        <li>Receitas</li>
+                        <li><strong>R$ 430,00</strong></li>
+                    </ul>
 
-                    <div class="icone"> <i class="fa-solid fa-arrow-up" style="color: green;""></i> </div>
+                    <div class="icone2"> <i class="fa-solid fa-arrow-up"></i> </div>
                 </li>
-                <li class=" box">Despesass
-                            <p>R$ 1200,0</p>
+                <li class=" box">
+                    <ul>
+                        <li>Despesas</li>
+                        <li><strong>R$ 523,00</strong></li>
+                    </ul>
 
-                            <div class="icone"><i class="fa-solid fa-arrow-down" style="color: red;"></i></div>
+                    <div class="icone3"><i class="fa-solid fa-arrow-down"></i></div>
                 </li>
-                <li class="box">Cartão de crédito
-                    <p>R$ 1200,0</p>
+                <li class="box">
+                    <ul>
+                        <li>Cartão</li>
+                        <li><strong>R$ 0,00</strong></li>
+                    </ul>
 
-                    <div class="icone"> <i class="fa-solid fa-credit-card"></i> </div>
+                    <div class="icone4"> <i class="fa-solid fa-credit-card"></i> </div>
                 </li>
             </ul>
         </section>
         <section id="plot-zone">
-            <canvas id="myChart"></canvas>
+            <div id="cont-plot">
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+            <div></div>
         </section>
     </section>
 
+    <script src="./js/animations.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/plot-grafic.js"></script>
 </body>

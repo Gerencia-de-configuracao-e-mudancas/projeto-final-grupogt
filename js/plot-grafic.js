@@ -13,7 +13,7 @@ function criarGrafico(id, valoresX, valoresY, tipo, cores, titulo, legenda){
         mostrarTitulo = false;
     }
     else{
-        cores = cores ? cores : ["red", "blue", "yellow", "green", "purple"];
+        cores = cores ? cores : ["rgb(2, 149, 206)", "rgb(80, 174, 83)","rgb(244, 66, 55)", "green", "purple"];
         legenda = valoresX;
         mostrarTitulo = true;
     }
@@ -38,4 +38,4 @@ function criarGrafico(id, valoresX, valoresY, tipo, cores, titulo, legenda){
     });
 }
 
-criarGrafico("myChart", ["Casa", "Escola", "Lazer"], ["2300.20", "430.00", "523.60"], "pie");
+criarGrafico("myChart", ["Saldo Atual", "Receita", "Despesas"], ["2300.20", "430.00", "523.60"], "pie");
