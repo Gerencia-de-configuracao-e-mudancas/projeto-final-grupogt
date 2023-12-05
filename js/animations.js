@@ -23,3 +23,14 @@ myLinks.forEach(link => {
             .catch(err => console.log(err));
     }
 })
+
+/*Adicao de evento de click nos icone*/
+myLinks.forEach(item => {
+    item.addEventListener('click', _ => {
+        /*Ajuste no estilo com relação ao grid quando ocorre a transição da página*/
+        const dashZone = document.querySelector("#dashboard");
+        dashZone.classList.remove('my-dash');
+        dashZone.classList.add('container-controle');
+    })
+})
+
