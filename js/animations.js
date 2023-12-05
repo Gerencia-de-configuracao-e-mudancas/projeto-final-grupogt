@@ -17,20 +17,5 @@ myLinks.forEach(link => {
             .then(content => content.text())
             .then(forma => conteudoSaida.innerHTML = forma)
             .catch(err => console.log(err));
-    }  
-})
-
-
-
-
-document.querySelectorAll("[bizu]").forEach(link => {
-    link.onclick = e => {
-        e.preventDefault();
-
-        const conteudo = document.getElementById("conteudo");
-
-        fetch(link.getAttribute("bizu")) //Pegando o href do corpo do link
-            .then(cont => cont.text()) //pegando o conteúdo html do href indicao ------ BIZU
-            .then(forma => conteudo.innerHTML = forma);  //Adicioanndo o conteudo (que foi retonado pra cá) na página
     }
 })
