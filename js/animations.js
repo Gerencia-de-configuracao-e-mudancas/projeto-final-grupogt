@@ -1,6 +1,10 @@
 /*Separando elementos importantes*/
 const botomMenu = document.querySelector("#more-menu");
 const menu = document.querySelector("#menu");
+/*Voltando a pagina inicial*/
+const homePage = document.querySelector("#home").addEventListener('click', _ => {
+    location.reload();
+})
 
 botomMenu.addEventListener('click', _ => {
     menu.classList.toggle('sumir');
