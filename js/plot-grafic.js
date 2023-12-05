@@ -20,22 +20,24 @@ function criarGrafico(id, valoresX, valoresY, tipo, cores, titulo, legenda){
     new Chart(id, {
         type: 'doughnut',
         data: {
-            labels: valoresX,
+
             datasets: [{
                 label: legenda,
                 backgroundColor: cores,
                 data: valoresY,
                 fill: false,
                 lineTension: 0,
+                borderWidth: 1
             }]
         },
         options: {
             title: {
                 display: mostrarTitulo,
                 text: titulo
-            }
+            },
+            cutout: '80%' //Propriedade para tornar o gráfico mais "fino";
         }
     });
 }
 
-criarGrafico("myChart", ["Saldo Atual", "Receita", "Despesas"], ["2300.20", "430.00", "523.60"], "pie");
+criarGrafico("myChart", ["Saldo", "Receita", "Despesas"], ["2300.20", "430.00", "523.60"], "pie");

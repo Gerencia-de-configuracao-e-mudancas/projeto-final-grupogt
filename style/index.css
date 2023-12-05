@@ -10,7 +10,7 @@ body {
 }
 
 /*Ajustes gerais*/
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'open-sans', sans-serif;
@@ -30,7 +30,8 @@ body {
     grid-template-areas: "navegation dashboard";
     gap: 10px;
     width: 100%;
-    height: 100vh; /*Medida = visual height, ou seja, toda a altura visível na tela */
+    height: 100vh;
+    /*Medida = visual height, ou seja, toda a altura visível na tela */
 }
 
 /*Areas do display grid container*/
@@ -47,21 +48,22 @@ body {
 }
 
 /*Botão que expande o menu vetical*/
-ul > li.more-option {
+ul>li.more-option {
     font-size: 1.2em;
     background-color: rgb(102, 22, 221);
-    padding: 12px;
+    cursor: pointer;
+    padding: 8px;
     border-radius: 50%;
     color: rgb(255, 255, 255);
 }
 
-ul > li > a {
+ul>li>a {
     color: rgb(255, 255, 255);
 }
 
 /*Detalhes dos links*/
 a {
-    padding: 5px 10px; 
+    padding: 5px 10px;
     color: rgb(54, 54, 54);
     font-size: 1.15em;
 }
@@ -71,24 +73,24 @@ a:hover {
     color: rgb(79, 39, 138);
     text-decoration: none;
     text-transform: lowercase;
-  }
+}
 
- .font-link{
+.font-link {
     width: 100px;
     height: 100px;
     display: block;
     cursor: pointer;
-  }
+}
 
 /*area de dashboard, onde os resumos mensais aparecerão, bem como informações o perfil, conta e gráficos*/
 #dashboard {
     grid-area: dashboard;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: .15fr .14fr 1fr;
+    grid-template-rows: 50px 160px 1fr;
     grid-template-areas: "user-zone"
-                        "dash-zone"
-                        "plot-zone";
+        "dash-zone"
+        "plot-zone";
     width: 100%;
     height: 100%;
     gap: 10px;
@@ -100,7 +102,10 @@ a:hover {
     justify-content: space-around;
 }
 
-.icone1, .icone2, .icone3, .icone4 {
+.icone1,
+.icone2,
+.icone3,
+.icone4 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,45 +154,47 @@ a:hover {
     grid-area: dash-zone;
 }
 
+/*Título dashboard*/
+#dash-zone>h2 {
+    font: normal normal 1.5em 'open-sans', sans-serif;
+    margin: 0 0 0 11px;
+    color: rgb(34, 34, 34);
+    margin-bottom: 10px;
+}
+
 #plot-zone {
     grid-area: plot-zone;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    margin: 50px 0 0 10px;
-}
-
-#plot-zone > div > div {
-    height: 340px;
-    width: 340px;
-    margin: auto;
+    margin: 10px 0 0 10px;
 }
 
 /*Lista com os resumos financeiras*/
-#dash-zone > ul {
+#dash-zone>ul {
     display: flex;
     list-style: none;
     flex-direction: row;
     width: 100%;
-    height: 100%;
+    height: 100px;
     justify-content: space-between;
     align-items: center;
 }
 
-#dash-zone > ul > li{
+#dash-zone>ul>li {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 250px;
-    height: 100%;
+    height: 80px;
     border-radius: 15px;
     margin: 0 10px;
     background-color: rgb(255, 255, 255);
-    box-shadow:  2px 2px 2px 0px rgb(192, 192, 192);
+    box-shadow: 2px 2px 2px 0px rgb(192, 192, 192);
 }
 
 /*Itens do menu de navegação*/
-#navegation > ul{
+#navegation>ul {
     display: flex;
     margin-top: 50px;
     width: 100%;
@@ -197,7 +204,7 @@ a:hover {
     align-items: center;
 }
 
-#navegation > ul > div {
+#navegation>ul>div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -205,7 +212,7 @@ a:hover {
     margin-top: 20px;
 }
 
-#navegation > ul > div > li {
+#navegation>ul>div>li {
     font: normal normal .9em 'open-sans', sans-serif;
     color: rgb(0, 0, 0);
     width: 40px;
@@ -214,30 +221,67 @@ a:hover {
 }
 
 /*Caixas dos resumos*/
-.box > ul {
+.box>ul {
     list-style: none;
 }
 
-.box > ul > li {
+.box>ul>li {
     margin: 0;
 }
 
-.box > ul > li:nth-child(1) {
+.box>ul>li:nth-child(1) {
     font: normal lighter .75em 'open-sans';
     color: rgb(49, 49, 49);
 }
 
 /*Ajustando o gráfico principal*/
-#cont-plot {
+#cont-plot>div {
     background-color: rgb(255, 255, 255);
-    box-shadow:  2px 2px 2px 0px rgb(192, 192, 192);
+    box-shadow: 2px 2px 2px 0px rgb(192, 192, 192);
     border-radius: 15px;
     width: 580px;
-    height: 400px;
-    padding-top: 15px;
+    height: 310px;
+    padding: 10px 0 10px;
+    margin: 0;
 }
 
 .sumir {
     transform: translateY(-300px);
     filter: opacity(0%);
+}
+
+/*Ajustando grafico principal e texto acima dele*/
+#plot-zone>div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+}
+
+#plot-zone>div>h2 {
+    font: normal normal 1em 'open-sans', sans-serif;
+    color: rgb(34, 34, 34);
+    margin-bottom: 10px;
+}
+
+/*Estilo na seleção do mês*/
+select {
+    padding: 3px;
+    border-radius: 15px;
+    font: normal normal .9em 'open-sans', sans-serif;
+    background-color: transparent;
+    margin: 10px 0 0 520px;
+    width: 120px;
+    display: block;
+}
+
+#myChart {
+    margin: auto;
+}
+
+.main-icon {
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: rgb(102, 22, 221);
+    font-size: 40px;
+    margin-top: 15px;
 }

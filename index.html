@@ -15,9 +15,8 @@
 </head>
 
 <body id="container">
-    <script src="https://kit.fontawesome.com/b3b34daf48.js" crossorigin="anonymous"></script>
-
     <section id="navegation">
+        <i class="fas fa-chart-bar main-icon"></i>
         <ul>
             <li class="left more-option">
                 <i class="fas fa-plus" id="more-menu" class="font-link"></i>
@@ -25,19 +24,19 @@
             </li>
             <div id="menu" class="sumir">
                 <li class="left">
-                    <a href="./SRC/home.html"> <i class="fa-solid fa-house" class="font-link"></i>
+                    <a href="#" link="./index.html"> <i class="fa-solid fa-house" class="font-link"></i>
                     </a>
                 </li>
                 <li class="left">
-                    <a href="./SRC/resumo.html"> <i class="fas fa-wallet" class="font-link"></i>
+                    <a href="#" link="./src/adicionar.html"> <i class="fas fa-wallet" class="font-link go"></i>
                     </a>
                 </li>
                 <li class="left">
-                    <a href="./SRC/conf.html"> <i class="fa-solid fa-gear" class="font-link"></i>
+                    <a href="#" link="./src/configuracoes.html"> <i class="fa-solid fa-gear" class="font-link go"></i>
                     </a>
                 </li>
                 <li class="left">
-                    <a href="./SRC/inf.html"> <i class="fas fa-ellipsis-h" class="font-link"></i>
+                    <a href="#" link="./src/mais.html"> <i class="fas fa-ellipsis-h" class="font-link go"></i>
                     </a>
                 </li>
             </div>
@@ -47,14 +46,21 @@
     <section id="dashboard">
         <section id="user-zone">
             <div id="month">
-                local que seleciona o mes
+                <select name="select-month" id="sele-month">
+                    <option value="dez">Dezembro</option>
+                    <option value="jan">Janeiro</option>
+                    <option value="fev">Fevereiro</option>
+                    <option value="mar">Março</option>
+                    <option value="abr">Abril</option>
+                </select>
             </div>
             <section id="user-data">
-                informações do user
+                
             </section>
         </section>
 
         <section id="dash-zone">
+            <h2><strong>Dashboard</strong></h2>
             <ul>
                 <li class="box">
                     <ul>
@@ -91,9 +97,12 @@
             </ul>
         </section>
         <section id="plot-zone">
-            <div id="cont-plot">
-                <div>
-                    <canvas id="myChart"></canvas>
+            <div>
+                <h2><strong>Resumo</strong></h2>
+                <div id="cont-plot">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
             </div>
             <div></div>
@@ -101,6 +110,7 @@
     </section>
 
     <script src="./js/animations.js"></script>
+    <script src="https://kit.fontawesome.com/b3b34daf48.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/plot-grafic.js"></script>
 </body>
