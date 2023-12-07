@@ -17,3 +17,8 @@ body {
     font-family: 'open-sans';
     src: url('../fonts/open-sans/static/OpenSans-Regular.ttf');
 }
+
+/*Configurando pop up de data para ter o mesmo tamanho dos outros inputs*/
+#inputData{
+    width: 60%;
+}

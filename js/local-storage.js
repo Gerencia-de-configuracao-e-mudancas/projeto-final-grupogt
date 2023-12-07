@@ -192,8 +192,10 @@ function criarResultadoMes(nomeDoMes){
     }
 }
 
+/*
 //Para testes cria um input inicial no localStorage para ele não começar vazio
 if(!receberElemento()){
     preencherElemento([{descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 256.4, mes: "janeiro"}, {descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 256.4, mes: "setembro"}, {descricao: "casa", valor: 256.4, mes: "janeiro"}, {descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 256.4, mes: "agosto"}, {descricao: "escola", valor: 42, mes: "maio"}]);
 }
 criarResultadoMes("maio");
+*/
