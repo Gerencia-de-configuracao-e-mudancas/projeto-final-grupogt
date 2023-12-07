@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar</title>
     <link rel="stylesheet" href="../style/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js"></script>
+    <script src="./../js/local-storage.js" defer></script>
+    <script src="./../js/pagina-adicionar.js" defer></script>
 </head>
 
 <body>
@@ -25,9 +28,9 @@
     </section>
     <section id="container-gasto">
         <section id="despesas-cards">
-            <div class="title-section">
+            <div class="title-section" id="">
                 <h2 id="despesa-title"><strong>Despesas</strong></h2>
-                <button><strong>+ NOVA DESPESA</strong></button>
+                <button id="lose-button"><strong>+ NOVA DESPESA</strong></button>
             </div>
             <ul>
                 <li class="box">
