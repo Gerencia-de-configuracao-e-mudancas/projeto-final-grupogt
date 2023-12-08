@@ -443,3 +443,54 @@ button#win-button {
 #gasto {
     background-color: rgb(244, 66, 55);
 }
+
+
+/*======================================= pag de configurações ====================================*/
+
+.info-card {
+    width: 390px;
+    margin: 70px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .info-card #card-top img {
+    width: 60%;
+    border-radius: 40%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: auto;
+  }
+  
+  .info-card #card-top h2 {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .info-card #card-top {
+    margin-bottom: 60px;
+  }
+  
+  .info-card p {
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .info-card .user-details {
+    text-align: left;
+    padding: 0 20px 20px;
+  }
+  
+  .info-card .user-details p {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+  
+  .info-card strong {
+    color: #333;
+  }
+  
