@@ -10,75 +10,103 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js"></script>
     <script src="./../js/local-storage.js" defer></script>
     <script src="./../js/pagina-adicionar.js" defer></script>
+    <link rel="stylesheet" href="../style/index.css">
 </head>
 
-<body>
-    <section id="user-zone">
-        <div id="month">
-            <select name="select-month" id="sele-month">
-                <option value="dez">Dezembro</option>
-                <option value="jan">Janeiro</option>
-                <option value="fev">Fevereiro</option>
-                <option value="mar">Março</option>
-                <option value="abr">Abril</option>
-            </select>
-        </div>
-        <section id="user-data">
+<body id="container-ad">
+    <section id="navegation">
+        <i class="fas fa-chart-bar main-icon"></i>
+        <ul>
+            <li class="left more-option">
+                <i class="fas fa-plus" id="more-menu" class="font-link"></i>
 
-        </section>
-    </section>
-    <section id="container-gasto">
-        <section id="despesas-cards">
-            <div class="title-section">
-                <h2 id="despesa-title"><strong>Despesas</strong></h2>
-                <button id="lose-button"><strong>+ NOVA DESPESA</strong></button>
+            </li>
+            <div id="menu" class="sumir">
+                <li class="left">
+                    <a href="../index.html" id="home"> <i class="fa-solid fa-house" class="font-link"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="./adicionar.html"> <i class="fas fa-wallet" class="font-link go"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="#" link="./src/configuracoes.html"> <i class="fa-solid fa-gear" class="font-link go"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="#" link="./src/mais.html"> <i class="fas fa-ellipsis-h" class="font-link go"></i>
+                    </a>
+                </li>
             </div>
-            <ul>
-                <li class="box">
-                    <ul>
-                        <li>Despesas Pendentes</li>
-                        <li><strong>R$ 300,00</strong></li>
-                    </ul>
-
-                    <div class="icone"> <i class="fas fa-list"></i></i> </div>
-                </li>
-                <li class="box">
-                    <ul>
-                        <li>Despesas Pagas</li>
-                        <li><strong>R$ 430,00</strong></li>
-                    </ul>
-
-                    <div class="icone"> <i class="fa-solid fa-arrow-down"></i> </div>
-                </li>
-            </ul>
-        </section>
+        </ul>
     </section>
-    <section id="container-ganho">
-        <section id="ganhos-cards">
-            <div class="title-section">
-                <h2 id="receitas-title"><strong>Despesas</strong></h2>
-                <button id="win-button"><strong>+ NOVO GANHO</strong></button>
+    <section id="adicionar">
+        <section id="user-zone-ad">
+            <div id="month">
+                <select name="select-month" id="sele-month">
+                    <option value="dez">Dezembro</option>
+                    <option value="jan">Janeiro</option>
+                    <option value="fev">Fevereiro</option>
+                    <option value="mar">Março</option>
+                    <option value="abr">Abril</option>
+                </select>
             </div>
-            <ul>
-                <li class="box">
-                    <ul>
-                        <li>Ganho</li>
-                        <li><strong>R$ 1000,00</strong></li>
-                    </ul>
-
-                    <div class="icone-win"> <i class="fas fa-list"></i></i> </div>
-                </li>
-                <li class="box">
-                    <ul>
-                        <li>Agendado</li>
-                        <li><strong>R$ 100,00</strong></li>
-                    </ul>
-
-                    <div class="icone-win"> <i class="fa-solid fa-arrow-up"></i> </div>
-                </li>
-            </ul>
+            <section id="user-data">
+            </section>
+        </section>
+        <section id="container-gasto">
+            <section id="despesas-cards">
+                <div class="title-section">
+                    <h2 id="despesa-title"><strong>Despesas</strong></h2>
+                    <button id="lose-button"><strong>+ NOVA DESPESA</strong></button>
+                </div>
+                <ul>
+                    <li class="box">
+                        <ul>
+                            <li>Despesas Pendentes</li>
+                            <li><strong>R$ 300,00</strong></li>
+                        </ul>
+                        <div class="icone"> <i class="fas fa-list"></i></i> </div>
+                    </li>
+                    <li class="box">
+                        <ul>
+                            <li>Despesas Pagas</li>
+                            <li><strong>R$ 430,00</strong></li>
+                        </ul>
+                        <div class="icone"> <i class="fa-solid fa-arrow-down"></i> </div>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section id="container-ganho">
+            <section id="ganhos-cards">
+                <div class="title-section">
+                    <h2 id="receitas-title"><strong>Despesas</strong></h2>
+                    <button id="win-button"><strong>+ NOVO GANHO</strong></button>
+                </div>
+                <ul>
+                    <li class="box">
+                        <ul>
+                            <li>Ganho</li>
+                            <li><strong>R$ 1000,00</strong></li>
+                        </ul>
+                        <div class="icone-win"> <i class="fas fa-list"></i></i> </div>
+                    </li>
+                    <li class="box">
+                        <ul>
+                            <li>Agendado</li>
+                            <li><strong>R$ 100,00</strong></li>
+                        </ul>
+                        <div class="icone-win"> <i class="fa-solid fa-arrow-up"></i> </div>
+                    </li>
+                </ul>
+            </section>
         </section>
     </section>
+
+    <script src="../js/animations.js"></script>
+    <script src="https://kit.fontawesome.com/b3b34daf48.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
