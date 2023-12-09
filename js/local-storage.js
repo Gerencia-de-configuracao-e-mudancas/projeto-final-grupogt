@@ -152,15 +152,32 @@ function adicionarOptionDataAtual(mesParaInserir){
 
 //Verifica quais meses estão no localStorage e adiciona eles para as options
 function preencherMesesUtilizados(){
-  let cacheMeses = receberElemento("cacheMeses");
-  if(cacheMeses == null){
+    let cacheMeses = receberElemento("cacheMeses");
     const listaFinancas = receberElemento();
-    cacheMeses = valoresUnicosArray(listaFinancas, "mes");
-    preencherElemento(cacheMeses, "cacheMeses");
-  }
-  for(let i of cacheMeses){
-    adicionarOptionDataAtual(i);
-  }
+
+    //Essa parte do código inicialmente não tinha nem if(!cacheMeses) nem if(listaFinancas), mas aparentemente
+    //não funciona dependendo se o cache existe ou não existe
+    if(!cacheMeses){
+        if(listaFinancas){
+            if(cacheMeses == null){
+                cacheMeses = valoresUnicosArray(listaFinancas, "mes");
+                preencherElemento(cacheMeses, "cacheMeses");
+            }
+             for(let i of cacheMeses){
+                adicionarOptionDataAtual(i);
+            }
+        }
+    }
+    else{
+        if(cacheMeses == null){
+            cacheMeses = valoresUnicosArray(listaFinancas, "mes");
+            preencherElemento(cacheMeses, "cacheMeses");
+        }
+         for(let i of cacheMeses){
+            adicionarOptionDataAtual(i);
+        }
+    }
+    
 }
 
 //Serve para converter os números armazenados no campo de mês em nomes
@@ -214,10 +231,9 @@ function adicionarNovoMes(novoMes){
 }
 
 
-/*
 //Para testes cria um input inicial no localStorage para ele não começar vazio
 if(!receberElemento()){
-    preencherElemento([{"descricao":"IFPB","valor":"1000","data":"2023-12-06","mes":"2023-02"},{"descricao":"Escola","valor":"-130","data":"2023-12-06","mes":"2023-02"},{"descricao":"Escola","valor":"320","data":"2023-12-06","mes":"2023-04"},{"descricao":"Escola","valor":"-230","data":"2023-12-06","mes":"2023-04"},{"descricao":"Escola","valor":"430","data":"2023-12-06","mes":"2023-03"},{"descricao":"Escola","valor":"-210","data":"2023-12-06","mes":"2023-03"},{"descricao":"Escola","valor":"430","data":"2023-12-06","mes":"2023-12"},{"descricao":"Steam","valor":"-22.50","data":"2023-02-06","mes":"2023-02"},{"descricao":"Steam","valor":-15,"data":"2023-03-06","mes":"2023-03"},{"descricao":"Steam","valor":-123.2,"data":"2023-04-06","mes":"2023-04"},{"descricao":"Comida","valor":-37.23,"data":"2023-12-08","mes":"2023-12"},{"descricao":"Comida","valor":-53.5,"data":"2023-12-08","mes":"2023-12"},{"descricao":"Cadernos","valor":-34.5,"data":"2023-12-29","mes":"2023-12"},{"descricao":"Comida","valor":"-12.4","data":"2023-12-08","mes":"2023-12"},{"descricao":"Eletricidade","valor":"-340","data":"2023-12-08","mes":"2023-12"},{"descricao":"Churros","valor":"34","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"213","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"213","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"45","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"345","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"234","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"43","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"23.4","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1.3","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"23","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Comida","valor":"-310","data":"2023-12-06","mes":"2023-03"},{"descricao":"Sem categoria","valor":"34","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34.3","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"23.12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34.12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"234","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"341","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34.3","data":"2023-12-22","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34.4","data":"2023-12-27","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-29","mes":"2023-12"},{"descricao":"Encanamento","valor":-54,"data":"2023-12-08","mes":"2023-12"},{"descricao":"Eletricidade","valor":-210,"data":"2023-04-20","mes":"2023-04"}]);
+    preencherElemento([{"descricao":"Comida","valor":-123,"data":"2023-07-09","mes":"2023-07"},{"descricao":"Steam","valor":-42,"data":"2023-02-09","mes":"2023-02"},{"descricao":"Salário","valor":"2400","data":"2023-12-09","mes":"2023-12"},{"descricao":"Monitoria","valor":"540","data":"2023-12-28","mes":"2023-12"},{"descricao":"Comida","valor":-124,"data":"2023-12-09","mes":"2023-12"},{"descricao":"Escola","valor":-540,"data":"2023-12-22","mes":"2023-12"},{"descricao":"Eletricidae","valor":-320,"data":"2023-12-09","mes":"2023-12"},{"descricao":"Encanamento","valor":-36,"data":"2023-12-09","mes":"2023-12"},{"descricao":"Encanamento","valor":-34,"data":"2023-12-09","mes":"2023-12"},{"descricao":"Steam","valor":-42,"data":"2023-07-09","mes":"2023-07"},{"descricao":"Eletricidade","valor":-210,"data":"2023-07-09","mes":"2023-07"},{"descricao":"Churros","valor":"230","data":"2023-07-20","mes":"2023-07"},{"descricao":"Aulas","valor":"760","data":"2023-02-22","mes":"2023-02"},{"descricao":"Viagem","valor":-550,"data":"2023-02-19","mes":"2023-02"},{"descricao":"Steam","valor":-39,"data":"2023-07-19","mes":"2023-07"}]);
 }
-*/
+
 //criarResultadoMes("maio");

@@ -3,7 +3,7 @@
 //Cria um pop up e coleta os dados ao clicar em + nova despesa
 function popUpNovaDespesa(){
   Swal.fire({
-    title: 'Insira novo ganho',
+    title: 'Insira nova despesa',
     html:
       '<input type="text" id="inputNome" class="swal2-input" placeholder="Categoria (opicional)">' +
       '<input type="text" id="inputValor" class="swal2-input" placeholder="Valor">'+
