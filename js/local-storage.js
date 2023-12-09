@@ -1,23 +1,30 @@
+console.log("Está funcionando");
+
 //Funcoes para manipular o nosso "banco de dados" no Local Storage
-function receberElemento(){
-    if(localStorage.financas){
-        return JSON.parse(localStorage.financas);
+function receberElemento(nomeLocalStorage){
+    //caso nenhum nome seja passado o localStorage tem valor padrão = "financas"
+    nomeLocalStorage = nomeLocalStorage ? nomeLocalStorage : "financas";
+    if(localStorage[nomeLocalStorage]){
+        return JSON.parse(localStorage[nomeLocalStorage]);
     }
     return null;
 }
 
-function preencherElemento(objeto){
-    localStorage.financas = JSON.stringify(objeto);
+function preencherElemento(objeto, nomeLocalStorage){
+    nomeLocalStorage = nomeLocalStorage ? nomeLocalStorage : "financas";
+    localStorage[nomeLocalStorage] = JSON.stringify(objeto);
 }
 
-function armazenarElemento(objeto){
-    if(localStorage.financas){
+function armazenarElemento(objeto, nomeLocalStorage){
+    //caso nenhum nome seja passado o localStorage tem valor padrão = "financas"
+    nomeLocalStorage = nomeLocalStorage ? nomeLocalStorage : "financas";
+    if(localStorage[nomeLocalStorage]){
         let armazenamento = receberElemento();
         armazenamento.push(objeto);
         preencherElemento(armazenamento);   
     }
     else{
-        preencherElemento([objeto]);
+        preencherElemento([objeto], nomeLocalStorage);
     }
 }
 
@@ -192,10 +199,50 @@ function criarResultadoMes(nomeDoMes){
     }
 }
 
-/*
+function adicionarOptionDataAtual(mesParaInserir){
+    let opcoesMeses = document.getElementById("sele-month");
+    let existe = false;
+    for(let i of opcoesMeses.children){
+        if(i.value == mesParaInserir){
+          existe = true;
+          break;
+        }
+
+        //Descobre que o mês não está na lista e adiciona ele antes do seu sucessor
+        if(i.value < mesParaInserir){
+          let novaOpcao = document.createElement("option");
+          novaOpcao.value = mesParaInserir;
+          novaOpcao.textContent = nomeDosMeses(mesParaInserir.split("-")[1]) + " - " + mesParaInserir.split("-")[0];
+          opcoesMeses.insertBefore(novaOpcao, i);
+          existe = true;
+          break;
+        }
+    }
+
+    //Descobre que o mês não está na lista e adiciona ele no final
+    if(existe == false){
+      let novaOpcao = document.createElement("option");
+        novaOpcao.value = mesParaInserir;
+        novaOpcao.textContent = nomeDosMeses(mesParaInserir.split("-")[1]) + " - " + mesParaInserir.split("-")[0];
+        opcoesMeses.appendChild(novaOpcao);
+    }
+}
+
+//Verifica quais meses estão no localStorage e adiciona eles para as options
+function preencherMesesUtilizados(){
+  let cacheMeses = receberElemento("cacheMeses");
+  if(cacheMeses == null){
+    const listaFinancas = receberElemento();
+    cacheMeses = valoresUnicosArray(listaFinancas, "mes");
+    preencherElemento(cacheMeses, "cacheMeses");
+  }
+  for(let i of cacheMeses){
+    adicionarOptionDataAtual(i);
+  }
+}
+
 //Para testes cria um input inicial no localStorage para ele não começar vazio
 if(!receberElemento()){
-    preencherElemento([{descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 256.4, mes: "janeiro"}, {descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 256.4, mes: "setembro"}, {descricao: "casa", valor: 256.4, mes: "janeiro"}, {descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 23.4, mes: "maio"}, {descricao: "casa", valor: 256.4, mes: "agosto"}, {descricao: "escola", valor: 42, mes: "maio"}]);
+    preencherElemento([{"descricao":"Escola","valor":"430","data":"2023-12-06", mes: "2023-12"},{"descricao":"Steam","valor":"32.50","data":"2023-12-06", "mes": "2023-12"},{"descricao":"Sem categoria","valor":-1,"data":"2023-12-06", mes: "2023-12"},{"descricao":"Sem categoria","valor":-123.2,"data":"2023-12-06", mes: "2023-12"},{"descricao":"Sem categoria","valor":-12.23,"data":"2023-12-08", "mes":"2023-12"},{"descricao":"Sem categoria","valor":-13,"data":"2023-12-08","mes":"2023-12"}]);
 }
-criarResultadoMes("maio");
-*/
+//criarResultadoMes("maio");

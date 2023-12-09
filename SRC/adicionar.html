@@ -45,11 +45,14 @@
         <section id="user-zone-ad">
             <div id="month">
                 <select name="select-month" id="sele-month">
-                    <option value="dez">Dezembro</option>
-                    <option value="jan">Janeiro</option>
-                    <option value="fev">Fevereiro</option>
-                    <option value="mar">Março</option>
-                    <option value="abr">Abril</option>
+                    <!--
+                        Espaço para as opções de mês
+                    <option value="2023-12">Dezembro - 2023</option>
+                    <option value="2023-04">Abril - 2023</option>
+                    <option value="2023-03">Março - 2023</option>
+                    <option value="2023-02">Fevereiro - 2023</option>
+                    <option value="2023-01">Janeiro - 2023</option>
+                    -->
                 </select>
             </div>
             <section id="user-data">
@@ -64,15 +67,15 @@
                 <ul>
                     <li class="box">
                         <ul>
-                            <li>Despesas Pendentes</li>
-                            <li><strong>R$ 300,00</strong></li>
+                            <li>Despesas Pagas</li>
+                            <li><strong id="despesas-atuais">R$ 430,00</strong></li>
                         </ul>
                         <div class="icone"> <i class="fas fa-list"></i></i> </div>
                     </li>
                     <li class="box">
                         <ul>
-                            <li>Despesas Pagas</li>
-                            <li><strong>R$ 430,00</strong></li>
+                            <li>Despesas Pendentes</li>
+                            <li><strong id="despesas-agendadas">R$ 300,00</strong></li>
                         </ul>
                         <div class="icone"> <i class="fa-solid fa-arrow-down"></i> </div>
                     </li>
@@ -89,14 +92,14 @@
                     <li class="box">
                         <ul>
                             <li>Ganho</li>
-                            <li><strong>R$ 1000,00</strong></li>
+                            <li><strong id="ganhos-atuais">R$ 0</strong></li>
                         </ul>
                         <div class="icone-win"> <i class="fas fa-list"></i></i> </div>
                     </li>
                     <li class="box">
                         <ul>
                             <li>Agendado</li>
-                            <li><strong>R$ 100,00</strong></li>
+                            <li><strong id="ganhos-agendados">R$ 100,00</strong></li>
                         </ul>
                         <div class="icone-win"> <i class="fa-solid fa-arrow-up"></i> </div>
                     </li>
