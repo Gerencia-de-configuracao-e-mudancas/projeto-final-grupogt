@@ -68,8 +68,10 @@
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          window.location.href = '../index.html'
           Swal.fire("Logoff relizado", "", "success");
+          setTimeout(_ => {
+            window.location.href = '../index.html'
+          }, 2000)
         } else if (result.isDenied) {
           Swal.fire("Logoff cancelado", "", "info");
         }
