@@ -1,7 +1,19 @@
-/*Separando elementos importantes*/
-const botomMenu = document.querySelector("#more-menu");
-const menu = document.querySelector("#menu");
+//TRATANDO O "LOGIN"
+document.querySelector("#form").addEventListener('submit', e => {
+    e.preventDefault();
+    console.log("aa");
 
-botomMenu.addEventListener('click', _ => {
-    menu.classList.toggle('sumir');
+    const user = document.querySelector('#user').value;
+    const pass = document.querySelector('#senha').value;
+
+    if (user === 'Dom Vito' && pass === 'corleone') {
+        window.location.href = './SRC/main.html';
+    }
+    else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Usuário ou senha incorretos",
+        });
+    }
 })

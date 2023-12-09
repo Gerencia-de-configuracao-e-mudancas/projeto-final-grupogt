@@ -34,6 +34,16 @@ body {
     /*Medida = visual height, ou seja, toda a altura visível na tela */
 }
 
+#container-config {
+    display: grid;
+    grid-template-columns: .07fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "navegation info-card";
+    gap: 10px;
+    width: 100%;
+    height: 100vh;  
+}
+
 /*Ajustes no que diz respeito a página de adição*/
 #container-ad {
     display: grid;
@@ -145,7 +155,8 @@ a:hover {
     background-color: rgb(78, 177, 80);
 }
 
-.icone3, .icone {
+.icone3,
+.icone {
     background-color: rgb(244, 66, 55);
 }
 
@@ -172,6 +183,20 @@ a:hover {
 
 #user-data {
     grid-area: user-data;
+    display: flex;
+    flex-direction: row;
+    font-size: .9em;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px 20px 0 0;
+    cursor: pointer;
+}
+
+#user-data > img {
+    width: 40px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 #dash-zone {
@@ -195,7 +220,9 @@ a:hover {
 }
 
 /*Lista com os resumos financeiras*/
-#dash-zone>ul, #despesas-cards>ul, #ganhos-cards>ul {
+#dash-zone>ul,
+#despesas-cards>ul,
+#ganhos-cards>ul {
     display: flex;
     list-style: none;
     flex-direction: row;
@@ -205,7 +232,9 @@ a:hover {
     align-items: center;
 }
 
-#dash-zone>ul>li,  #despesas-cards>ul>li, #ganhos-cards>ul>li {
+#dash-zone>ul>li,
+#despesas-cards>ul>li,
+#ganhos-cards>ul>li {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -259,7 +288,8 @@ a:hover {
 }
 
 /*Ajustando o gráfico principal*/
-#cont-plot>div, #cont-plot-bar {
+#cont-plot>div,
+#cont-plot-bar {
     background-color: rgb(255, 255, 255);
     box-shadow: 2px 2px 2px 0px rgb(192, 192, 192);
     border-radius: 15px;
@@ -267,6 +297,11 @@ a:hover {
     height: 310px;
     padding: 10px 0 10px;
     margin: 0;
+}
+
+#cont-plot-bar {
+    width: 400px;
+    font-size: .9em;
 }
 
 .sumir {
@@ -339,22 +374,26 @@ select {
     flex-direction: column;
 }
 
-#despesas-cards>ul, #ganhos-cards>ul {
+#despesas-cards>ul,
+#ganhos-cards>ul {
     margin-top: 30px;
     justify-content: left;
 }
 
-#despesas-cards>ul>li:nth-child(2), #ganhos-cards>ul>li:nth-child(2) {
+#despesas-cards>ul>li:nth-child(2),
+#ganhos-cards>ul>li:nth-child(2) {
     margin: 0 0 0 100px;
 }
 
-.icone, .icone-win {
+.icone,
+.icone-win {
     padding: 7px 11px;
     border-radius: 50%;
     color: rgb(255, 255, 255);
 }
 
-#despesa-title, #receitas-title {
+#despesa-title,
+#receitas-title {
     background-color: rgb(244, 66, 55);
     color: rgb(255, 255, 255);
     font: normal normal 1.1em 'open-sans', sans-serif;
@@ -365,15 +404,18 @@ select {
     margin: 0 0 0 10px;
 }
 
-.icone-win, #receitas-title {
-    background-color: rgb(78, 177, 80);;
+.icone-win,
+#receitas-title {
+    background-color: rgb(78, 177, 80);
+    ;
 }
 
-#ganhos-cards, #despesas-cards {
+#ganhos-cards,
+#despesas-cards {
     margin: 50px 0 0 0;
 }
 
-.title-section{
+.title-section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -403,7 +445,7 @@ button#win-button {
     margin: 32px 0 0 0;
 }
 
-#cont-plot-bar > div:nth-child(1) {
+#cont-plot-bar>div:nth-child(1) {
     grid-column: plot;
 }
 
@@ -413,11 +455,12 @@ button#win-button {
     margin: 20px 0 0 50px;
 }
 
-#cont-plot-bar > div:nth-child(2) {
+#cont-plot-bar>div:nth-child(2) {
     grid-column: legend;
 }
 
-#gasto, #ganho {
+#gasto,
+#ganho {
     width: 15px;
     height: 15px;
     border-radius: 3px;
@@ -449,48 +492,156 @@ button#win-button {
 
 .info-card {
     width: 390px;
-    margin: 70px auto;
+    margin: 20px auto;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
     border-radius: 10px;
     overflow: hidden;
-  }
-  
-  .info-card #card-top img {
-    width: 60%;
-    border-radius: 40%;
+}
+
+.info-card #card-top img {
+    width: 40%;
+    border-radius: 50%;
     margin-top: 10px;
     margin-bottom: 5px;
-    height: auto;
-  }
-  
-  .info-card #card-top h2 {
+}
+
+.info-card #card-top h2 {
     margin: 10px 0;
     color: #333;
-  }
-  
-  .info-card #card-top {
-    margin-bottom: 60px;
-  }
-  
-  .info-card p {
+}
+
+.info-card #card-top {
+    margin-bottom: 40px;
+}
+
+.info-card p {
     color: #555;
     margin: 5px 0;
-  }
-  
-  .info-card .user-details {
+}
+
+.info-card .user-details {
     text-align: left;
     padding: 0 20px 20px;
-  }
-  
-  .info-card .user-details p {
+    font-size: .9em;
+}
+
+.info-card .user-details p {
     border-bottom: 1px solid #eee;
     padding: 10px 0;
-  }
-  
-  .info-card strong {
+}
+
+.info-card strong {
     color: #333;
-  }
-  
+}
+
+#sair {
+    margin: auto;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(207, 92, 92);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    transition: .5s;
+}
+
+#sair:hover {
+    background-color: rgb(206, 43, 43);
+    transition: .5s;
+}
+
+/*=================================== ESTILO LOGIN PAGE ========================================*/
+#main-login {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 2px 0px rgb(192, 192, 192);
+    justify-content: space-around;
+    border-radius: 15px;
+}
+
+.est-form {
+    border-style: solid;
+    height: 18px;
+    width: 200px;
+    border-width: 1px;
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: #272727;
+    justify-content: space-between;
+}
+
+.formm {
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    height: 18px;
+    padding-left: 10px;
+    background: transparent;
+
+}
+
+.formm::placeholder {
+    color: rgb(36, 36, 36);
+}
+
+#remember {
+    text-decoration: underline;
+    text-align: center;
+    font-size: .8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    height: 12%;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#form > button {
+    margin: 0;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    background-color: #272727;
+    margin-top: 30px;
+}
+
+#detaile01, #detaile02 {
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    z-index: 0;
+    border: 15px solid rgb(102, 22, 221);
+    right: -50px;
+    bottom: 10px;
+    z-index: -1;
+}
+
+#detaile02 {
+    left: -50px;
+    top: 10px;
+}
+
+#body-log {
+    z-index: -1;
+}
