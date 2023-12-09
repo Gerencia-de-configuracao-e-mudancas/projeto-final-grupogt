@@ -1,5 +1,3 @@
-console.log("Está funcionando");
-
 //Funcoes para manipular o nosso "banco de dados" no Local Storage
 function receberElemento(nomeLocalStorage){
     //caso nenhum nome seja passado o localStorage tem valor padrão = "financas"
@@ -18,7 +16,6 @@ function preencherElemento(objeto, nomeLocalStorage){
 function armazenarElemento(objeto, nomeLocalStorage){
     //caso nenhum nome seja passado o localStorage tem valor padrão = "financas"
     nomeLocalStorage = nomeLocalStorage ? nomeLocalStorage : "financas";
-    console.log("NomeLocalStorage:", nomeLocalStorage);
     if(localStorage[nomeLocalStorage]){
         let armazenamento = receberElemento(nomeLocalStorage);
         armazenamento.push(objeto);
@@ -35,7 +32,6 @@ function editarElemento(objeto, posicao, nomeLocalStorage){
     let listaElementos = receberElemento();
     if(listaElementos){
         if(posicao < listaElementos.length && posicao > -1){
-            //console.log("Edição possível");
             listaElementos[posicao] = objeto;
             preencherElemento(listaElementos, nomeLocalStorage);   
         }
@@ -90,12 +86,8 @@ function inserirOptionsMeses(){
 //Retorna todos os objetos do localStorage de um mes específico
 function filtrarPorMes(mes){
     let listaFinancas = receberElemento();
-    console.log("Mes: ", mes);
-    console.log("listaFinancas: ", listaFinancas);
     if(listaFinancas){
         return listaFinancas.filter((objeto) => {
-            console.log("Objeto: ", objeto);
-            console.log(`${objeto.mes} == ${mes}: `, objeto.mes == mes);
             return objeto.mes == mes;
         });
     }
@@ -112,7 +104,6 @@ function somatorioCampo(lista, campo, dataLimite){
     }
     else{
         return lista.reduce((acumulador, atual) => {
-            console.log(`${atual['data']} <= ${dataLimite}: `, atual["data"] <= dataLimite);
             if(atual["data"] <= dataLimite){
                 return acumulador + Number(atual[campo]);
             }
@@ -218,8 +209,6 @@ function adicionarNovoMes(novoMes){
     let cacheMeses = receberElemento("cacheMeses");
     if(cacheMeses != null){
         if(cacheMeses.indexOf(novoMes) == -1){
-            console.log("Novo mês!");
-            console.log("Novo mes armazenado no localStorage: ", novoMes);
             armazenarElemento(novoMes, "cacheMeses");
             adicionarOptionDataAtual(novoMes);
           }
@@ -235,5 +224,3 @@ function adicionarNovoMes(novoMes){
 if(!receberElemento()){
     preencherElemento([{"descricao":"Comida","valor":-123,"data":"2023-07-09","mes":"2023-07"},{"descricao":"Steam","valor":-42,"data":"2023-02-09","mes":"2023-02"},{"descricao":"Salário","valor":"2400","data":"2023-12-09","mes":"2023-12"},{"descricao":"Monitoria","valor":"540","data":"2023-12-28","mes":"2023-12"},{"descricao":"Comida","valor":-124,"data":"2023-12-09","mes":"2023-12"},{"descricao":"Escola","valor":-540,"data":"2023-12-22","mes":"2023-12"},{"descricao":"Eletricidae","valor":-320,"data":"2023-12-09","mes":"2023-12"},{"descricao":"Encanamento","valor":-36,"data":"2023-12-09","mes":"2023-12"},{"descricao":"Encanamento","valor":-34,"data":"2023-12-09","mes":"2023-12"},{"descricao":"Steam","valor":-42,"data":"2023-07-09","mes":"2023-07"},{"descricao":"Eletricidade","valor":-210,"data":"2023-07-09","mes":"2023-07"},{"descricao":"Churros","valor":"230","data":"2023-07-20","mes":"2023-07"},{"descricao":"Aulas","valor":"760","data":"2023-02-22","mes":"2023-02"},{"descricao":"Viagem","valor":-550,"data":"2023-02-19","mes":"2023-02"},{"descricao":"Steam","valor":-39,"data":"2023-07-19","mes":"2023-07"}]);
 }
-
-//criarResultadoMes("maio");

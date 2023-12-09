@@ -1,3 +1,6 @@
+//Referente as funções para main.html
+//Requer local-storage.js para rodar
+
 function receberDataAtual() {
     const hoje = new Date();
     const ano = hoje.getFullYear();
@@ -8,15 +11,12 @@ function receberDataAtual() {
 
 //Analisa todas as movimentações de cada categoria e cria um resumo com os totais
 function criarResultadoMes(nomeDoMes){
-    console.log("Pelo menos roda");
     let listaFiltrada = filtrarPorMes(nomeDoMes);
-    //console.log(`listaFiltrada pelo mes ${nomeDoMes}: `, listaFiltrada);
     if(listaFiltrada){
         let saida = {mes: nomeDoMes, descricao: [], ganho: [], despesa: [], valor: []};
         for(let i of listaFiltrada){
             //Se o saldo não tiver um nome ele será nomeado de "Outros"
             if(!i.descricao){
-                console.log("Adicionado outros");
                 i.descricao = "Outros";
             }
             //Descobre a posicao do saldo na lista de saida
@@ -49,7 +49,6 @@ function criarResultadoMes(nomeDoMes){
         let posicaoMesAtual = -1;
         if(listaResumos){
             posicaoMesAtual = listaResumos.findIndex(objeto => objeto.mes == nomeDoMes);
-            console.log("Posicao do MesAtual", posicaoMesAtual);
         }
         if(posicaoMesAtual != -1){
             editarResumo(saida, posicaoMesAtual);
@@ -107,7 +106,6 @@ function editarResumo(objeto, posicao){
     let listaResumos = receberResumo();
     if(listaResumos){
         if(posicao < listaResumos.length && posicao > -1){
-            //console.log("Edição possível");
             listaResumos[posicao] = objeto;
             preencherResumo(listaResumos);   
         }
@@ -140,13 +138,12 @@ function atualizarValoresHTML(){
     let totalSaldoAtual;
 
     let listaFinancas = receberElemento();
-    console.log("listaFinancas: ",listaFinancas);
     if(listaFinancas){
         if(receberDataAtual().slice(0, -3) == seletor.value){
             totalSaldoAtual = somatorioCampo(receberElemento(), "valor", receberDataAtual());
         }
         else{
-            console.log(seletor.value+"-31");
+            //Se for um mês antigo começa do dia 31, pois não existem mais pagamentos ou ganhos pendentes
             totalSaldoAtual = somatorioCampo(receberElemento(), "valor", seletor.value+"-31");
         }
         
@@ -154,10 +151,6 @@ function atualizarValoresHTML(){
     else{
         totalSaldoAtual = 0;
     }
-    
-
-    console.log("totalDespesas: ", totalDespesas);
-    console.log("totalReceitas: ", totalReceitas);
 
     valorReceitas.textContent = "R$ " + totalReceitas;
     valorDespesas.textContent = "R$ " + totalDespesas;
@@ -165,8 +158,9 @@ function atualizarValoresHTML(){
 }
 
 let seletor = document.querySelector("#sele-month");
+
+//Muda a visualização quando troca o mês nas options
 seletor.addEventListener("click", ()=>{
-    console.log("Mes marcado: ", seletor.value);
     criarResultadoMes(seletor.value);
     atualizarValoresHTML();
     graficoCategorias();
@@ -176,8 +170,6 @@ seletor.addEventListener("click", ()=>{
 //Retorna o resumo do mes marcado no select
 function retornarResumoDoMes(){
     let mesMarcado = document.querySelector("#sele-month").value;
-    console.log(seletor.value);
-    console.log("Mes marcado: ", mesMarcado);
     let resumo = receberResumo();
     for(let i of resumo){
         if(i.mes == mesMarcado){
@@ -189,10 +181,6 @@ function retornarResumoDoMes(){
 }
 
 function graficoCategorias(){
-    console.log(" ");
-    console.log("Grafico categorias");
-    console.log(" ");
-
     const resumo = retornarResumoDoMes();
 
     let valoresX = [], valoresY = [];
@@ -205,9 +193,6 @@ function graficoCategorias(){
 
         contador++;
     };
-
-    //console.log("valoresX", valoresX);
-    //console.log("valoresY", valoresY);
 
     if(graficoDognut != null){
         graficoDognut.destroy();
@@ -232,8 +217,8 @@ function graficoDespesasGanhos(){
 let graficoDognut = null;
 let graficoBarra = null;
 
+//Função de inicialização. Coloca os meses e monta os gráficos caso hajam despesas e ganhos salvos
 window.addEventListener("load", ()=>{
-    console.log("Função de inicialização")
     preencherMesesUtilizados();
     adicionarNovoMes(receberDataAtual().slice(0, -3));
     for(let i of valoresUnicosArray(receberElemento(), "mes")){
@@ -244,4 +229,6 @@ window.addEventListener("load", ()=>{
     atualizarValoresHTML();
     graficoCategorias();
     graficoDespesasGanhos();
+
+    console.log("Então você é o nerd que veio olhar como funciona a página?");
 });
