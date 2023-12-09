@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="controle, gestao, gastos, organizar">
+    <meta name="description"
+        content="Site desenvolvido com o intuito de ajudar os clientes a controlarem sua vida financeira">
+    <meta name="author" content="Cauã Pires Soares">
+    <meta name="author" content="Victor Ivis">
+    <meta name="author" content="Daniel Lima Fernandes">
+    <link rel="stylesheet" href="../style/index.css">
+    <title>Organize</title>
+</head>
+
+<body id="container">
+    <section id="navegation">
+        <i class="fas fa-chart-bar main-icon"></i>
+        <ul>
+            <li class="left more-option">
+                <i class="fas fa-plus" id="more-menu" class="font-link"></i>
+
+            </li>
+            <div id="menu" class="sumir">
+                <li class="left">
+                    <a href="#" id="home"> <i class="fa-solid fa-house" class="font-link"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="adicionar.html"> <i class="fas fa-wallet" class="font-link go"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="configuracoes.html"> <i class="fa-solid fa-gear" class="font-link go"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="#" link="./src/mais.html"> <i class="fas fa-ellipsis-h" class="font-link go"></i>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </section>
+
+    <section id="dashboard" class="my-dash">
+        <section id="user-zone">
+            <div id="month">
+                <select name="select-month" id="sele-month">
+                    <option value="dez">Dezembro</option>
+                    <option value="jan">Janeiro</option>
+                    <option value="fev">Fevereiro</option>
+                    <option value="mar">Março</option>
+                    <option value="abr">Abril</option>
+                </select>
+            </div>
+            <section id="user-data">
+                <img id="miniatura" src="../img/dom-vito-perfil.jpg" alt="Miniatura perfil">
+                <p><strong>Don Vito</strong></p>
+            </section>
+        </section>
+
+        <section id="dash-zone">
+            <h2><strong>Dashboard</strong></h2>
+            <ul>
+                <li class="box">
+                    <ul>
+                        <li>Saldo Atual</li>
+                        <li><strong>R$ 2.300,00</strong></li>
+                    </ul>
+
+                    <div class="icone1"> <i class="fas fa-list"></i></i> </div>
+                </li>
+                <li class="box">
+                    <ul>
+                        <li>Receitas</li>
+                        <li><strong>R$ 430,00</strong></li>
+                    </ul>
+
+                    <div class="icone2"> <i class="fa-solid fa-arrow-up"></i> </div>
+                </li>
+                <li class=" box">
+                    <ul>
+                        <li>Despesas</li>
+                        <li><strong>R$ 523,00</strong></li>
+                    </ul>
+
+                    <div class="icone3"><i class="fa-solid fa-arrow-down"></i></div>
+                </li>
+                <li class="box">
+                    <ul>
+                        <li>Cartão</li>
+                        <li><strong>R$ 0,00</strong></li>
+                    </ul>
+
+                    <div class="icone4"> <i class="fa-solid fa-credit-card"></i> </div>
+                </li>
+            </ul>
+        </section>
+        <section id="plot-zone">
+            <div>
+                <h2><strong>Resumo</strong></h2>
+                <div id="cont-plot">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div id="cont-plot-bar">
+                <div id="plot-bar" >
+                    <canvas id="myChartBar"></canvas>
+                </div>
+                <div id="legend">
+                    <div id="text-content">
+                        <p><span id="ganho"></span><strong>Acumulo ganhos</strong></p>
+                        <p><span id="gasto"></span><strong>Gastos totais</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script src="../js/menu.js"></script>
+    <script src="https://kit.fontawesome.com/b3b34daf48.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/plot-grafic.js"></script>
+</body>
+
+</html>
