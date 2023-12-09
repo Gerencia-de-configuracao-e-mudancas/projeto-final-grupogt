@@ -205,4 +205,3 @@ window.addEventListener("load", ()=>{
   seletor.value = receberDataAtual().slice(0, -3);
   GanhosAtuaisEAgendados(); 
 });
-adicionarNovoMes("2023-12");

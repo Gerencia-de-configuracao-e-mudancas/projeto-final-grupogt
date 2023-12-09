@@ -20,7 +20,7 @@ function armazenarElemento(objeto, nomeLocalStorage){
     nomeLocalStorage = nomeLocalStorage ? nomeLocalStorage : "financas";
     console.log("NomeLocalStorage:", nomeLocalStorage);
     if(localStorage[nomeLocalStorage]){
-        let armazenamento = receberElemento();
+        let armazenamento = receberElemento(nomeLocalStorage);
         armazenamento.push(objeto);
         preencherElemento(armazenamento, nomeLocalStorage);   
     }
@@ -202,6 +202,7 @@ function adicionarNovoMes(novoMes){
     if(cacheMeses != null){
         if(cacheMeses.indexOf(novoMes) == -1){
             console.log("Novo mês!");
+            console.log("Novo mes armazenado no localStorage: ", novoMes);
             armazenarElemento(novoMes, "cacheMeses");
             adicionarOptionDataAtual(novoMes);
           }
