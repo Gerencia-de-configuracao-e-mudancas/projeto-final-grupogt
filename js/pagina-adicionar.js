@@ -1,9 +1,10 @@
+//Referente as funções para adicionar.html
 //Requer sweetalert2.all.min.js e local-storage.js para rodar
 
 //Cria um pop up e coleta os dados ao clicar em + nova despesa
 function popUpNovaDespesa(){
   Swal.fire({
-    title: 'Insira novo ganho',
+    title: 'Insira nova despesa',
     html:
       '<input type="text" id="inputNome" class="swal2-input" placeholder="Categoria (opicional)">' +
       '<input type="text" id="inputValor" class="swal2-input" placeholder="Valor">'+
@@ -134,38 +135,6 @@ function popUpNovoGanho(){
     });
 }
 
-//Serve para converter os números armazenados no campo de mês em nomes
-function nomeDosMeses(numeroDoMes){
-  numeroDoMes = Number(numeroDoMes);
-  switch(numeroDoMes) {
-      case 1:
-          return "Janeiro";
-      case 2:
-          return "Fevereiro";
-      case 3:
-          return "Março";
-      case 4:
-          return "Abril";
-      case 5:
-          return "Maio";
-      case 6:
-          return "Junho";
-      case 7:
-          return "Julho";
-      case 8:
-          return "Agosto";
-      case 9:
-          return "Setembro";
-      case 10:
-          return "Outubro";
-      case 11:
-          return "Novembro";
-      case 12:
-          return "Dezembro";
-      default:
-          return null;
-  }
-}
 
 //Vê todas as transações e calcula despesas e ganhos para aparecerem na tela
 function GanhosAtuaisEAgendados(){
@@ -181,23 +150,32 @@ function GanhosAtuaisEAgendados(){
   }
 
   //Percorre todos os valores armazenados daquele respectivo mês
-  for(let i of listaMes){
-    if(i.valor > 0){//Verifica se é um ganho
-      if(i.data <= dataAtual){
-        total.ganho.atual += Number(i.valor);
+  if(listaMes){
+    for(let i of listaMes){
+      if(i.valor > 0){//Verifica se é um ganho
+        if(i.data <= dataAtual){
+          total.ganho.atual += Number(i.valor);
+        }
+        else{
+          total.ganho.agendado += Number(i.valor);
+        }
       }
-      else{
-        total.ganho.agendado += Number(i.valor);
+      else{//Verifica que é uma despesa
+        if(i.data <= dataAtual){
+          total.despesa.atual += Number(i.valor);
+        }
+        else{
+          total.despesa.agendado += Number(i.valor);
+        }
       }
     }
-    else{//Verifica que é uma despesa
-      if(i.data <= dataAtual){
-        total.despesa.atual += Number(i.valor);
-      }
-      else{
-        total.despesa.agendado += Number(i.valor);
-      }
-    }
+  }
+  else{
+    total.ganho.atual = 0;
+    total.ganho.agendado = 0;
+
+    total.despesa.atual = 0;
+    total.despesa.agendado = 0;
   }
 
   //Atualiza os valores na tela de acordo com os novos totais calculados
@@ -208,18 +186,6 @@ function GanhosAtuaisEAgendados(){
   document.getElementById("despesas-agendadas").textContent = "R$ " + total.despesa.agendado.toFixed(2);
 }
 
-function adicionarNovoMes(novoMes){
-  let cacheMeses = receberElemento("cacheMeses");
-  if(cacheMeses.indexOf(novoMes) == -1){
-    console.log("Novo mês!");
-    armazenarElemento(novoMes, "cacheMeses");
-    adicionarOptionDataAtual(novoMes);
-  }
-}
-
-preencherElemento([{"descricao":"IFPB","valor":"1000","data":"2023-12-06","mes":"2023-02"}, {"descricao":"Escola","valor":"-130","data":"2023-12-06","mes":"2023-02"}, {"descricao":"Escola","valor":"320","data":"2023-12-06","mes":"2023-04"}, {"descricao":"Escola","valor":"-230","data":"2023-12-06","mes":"2023-04"}, {"descricao":"Escola","valor":"430","data":"2023-12-06","mes":"2023-03"}, {"descricao":"Escola","valor":"-210","data":"2023-12-06","mes":"2023-03"}, {"descricao":"Escola","valor":"430","data":"2023-12-06","mes":"2023-12"},{"descricao":"Steam","valor":"32.50","data":"2023-12-06","mes":"2023-12"},{"descricao":"Sem categoria","valor":-1,"data":"2023-12-06","mes":"2023-12"},{"descricao":"Sem categoria","valor":-123.2,"data":"2023-12-06","mes":"2023-12"},{"descricao":"Sem categoria","valor":-12.23,"data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":-13,"data":"2023-12-08","mes":"2023-12"},{"descricao":"Cadernos","valor":-34.5,"data":"2023-12-29","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Churros","valor":"34","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"213","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"213","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"45","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"345","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"234","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"43","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"23.4","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1.3","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"1","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"23","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34.3","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"23.12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34.12","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"234","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"341","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34.3","data":"2023-12-22","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-08","mes":"2023-12"},{"descricao":"Sem categoria","valor":"34.4","data":"2023-12-27","mes":"2023-12"},{"descricao":"Sem categoria","valor":"123","data":"2023-12-29","mes":"2023-12"},{"descricao":"Sem categoria","valor":-34,"data":"2023-12-08","mes":"2023-12"}]);
-
-
 //Adicionando o evento de pop up nos botões
 document.getElementById("lose-button").addEventListener("click", popUpNovaDespesa);
 document.getElementById("win-button").addEventListener("click", popUpNovoGanho);
@@ -228,8 +194,8 @@ document.getElementById("win-button").addEventListener("click", popUpNovoGanho);
 let seletor = document.getElementById("sele-month");
 seletor.addEventListener("click", GanhosAtuaisEAgendados);
 
+//Função de inicialização em suma pega dados armazenagos no cache
 window.addEventListener("load", ()=>{
-  console.log("Função de inicialização")
   preencherMesesUtilizados();
   adicionarNovoMes(receberDataAtual().slice(0, -3));
   seletor.value = receberDataAtual().slice(0, -3);

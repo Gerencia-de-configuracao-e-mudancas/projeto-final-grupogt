@@ -3,11 +3,11 @@
 //Os únicos parâmetros obrigatórios são id, valoresX e valoresX. Todos os outros tem valores padrões
 function criarGrafico(id, valoresX, valoresY, cores, titulo, legenda) {
     let mostrarTitulo;
-    cores = cores ? cores : ["rgb(2, 149, 206)", "rgb(80, 174, 83)", "rgb(244, 66, 55)"];
+    cores = cores ? cores : ["rgb(2, 149, 206)", "rgb(80, 174, 83)", "rgb(244, 66, 55)", "rgb(238, 251, 0)", "rgb(255, 155, 0)"];
     legenda = valoresX;
     mostrarTitulo = true;
 
-    new Chart(id, {
+    return new Chart(id, {
         type: 'doughnut',
         data: {
 
@@ -37,7 +37,7 @@ function criarGraficoBarra(id, valoresX, valoresY, cores, legenda) {
     legenda = valoresX;
     mostrarTitulo = true;
 
-    new Chart(id, {
+    return new Chart(id, {
         type: 'bar',
         data: {
             labels: valoresX,
@@ -77,5 +77,48 @@ function criarGraficoBarra(id, valoresX, valoresY, cores, legenda) {
     });
 }
 
-criarGrafico("myChart", ["Saldo", "Receita", "Despesas"], ["2300.20", "430.00", "523.60"]);
-criarGraficoBarra("myChartBar", ["Receita", "Despesas"], ["430.00", "523.60"])
+//Chart do chat gpt
+function funcaoGraficoDognut(id, valoresX, valoresY){
+    // Sample data
+const data = {
+    labels: valoresX,
+    datasets: [
+      {
+        data: valoresY,
+        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50"],
+        fill: false,
+        lineTension: 0,
+        borderWidth: 1
+      },
+    ],
+  };
+
+    // Chart configuration
+    const config = {
+        type: "doughnut",
+        data: data,
+        options: {
+            cutout: '78%',
+            /*plugins: {
+                tooltip: {
+                    callbacks: {
+                    label: (context) => {
+                        // Get the index of the hovered data point
+                        const dataIndex = context.dataIndex;
+                        
+                        // Get the corresponding label (category name) from the data
+                        const label = data.labels[dataIndex];
+                        
+                        // Return the label to be displayed in the tooltip
+                        return label;
+                        },
+                    },
+                },
+            },*/
+        },
+    };
+    
+  return new Chart(document.getElementById(id), config);  
+}
+
+//criarGrafico("myChart", ["Saldo", "Receita", "Despesas"], ["2300.20", "430.00", "523.60"]);

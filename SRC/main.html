@@ -12,6 +12,8 @@
     <meta name="author" content="Daniel Lima Fernandes">
     <link rel="stylesheet" href="../style/index.css">
     <title>Organize</title>
+    <script src="./../js/local-storage.js" defer></script>
+    <script src="./../js/pagina-main.js" defer></script>
 </head>
 
 <body id="container">
@@ -47,11 +49,13 @@
         <section id="user-zone">
             <div id="month">
                 <select name="select-month" id="sele-month">
-                    <option value="dez">Dezembro</option>
-                    <option value="jan">Janeiro</option>
-                    <option value="fev">Fevereiro</option>
-                    <option value="mar">Março</option>
-                    <option value="abr">Abril</option>
+                    <!--
+                    <option value="2023-12">Dezembro - 2023</option>
+                    <option value="2023-04">Abril - 2023</option>
+                    <option value="2023-03">Março - 2023</option>
+                    <option value="2023-02">Fevereiro - 2023</option>
+                    <option value="2023-01">Janeiro - 2023</option>
+                    -->
                 </select>
             </div>
             <section id="user-data">
@@ -66,7 +70,7 @@
                 <li class="box">
                     <ul>
                         <li>Saldo Atual</li>
-                        <li><strong>R$ 2.300,00</strong></li>
+                        <li><strong id="saldo-atual">R$ 2.300,00</strong></li>
                     </ul>
 
                     <div class="icone1"> <i class="fas fa-list"></i></i> </div>
@@ -74,7 +78,7 @@
                 <li class="box">
                     <ul>
                         <li>Receitas</li>
-                        <li><strong>R$ 430,00</strong></li>
+                        <li><strong id="receitas">R$ 430,00</strong></li>
                     </ul>
 
                     <div class="icone2"> <i class="fa-solid fa-arrow-up"></i> </div>
@@ -82,7 +86,7 @@
                 <li class=" box">
                     <ul>
                         <li>Despesas</li>
-                        <li><strong>R$ 523,00</strong></li>
+                        <li><strong id="despesas">R$ 523,00</strong></li>
                     </ul>
 
                     <div class="icone3"><i class="fa-solid fa-arrow-down"></i></div>
@@ -90,7 +94,7 @@
                 <li class="box">
                     <ul>
                         <li>Cartão</li>
-                        <li><strong>R$ 0,00</strong></li>
+                        <li><strong id="cartao">R$ 0,00</strong></li>
                     </ul>
 
                     <div class="icone4"> <i class="fa-solid fa-credit-card"></i> </div>
