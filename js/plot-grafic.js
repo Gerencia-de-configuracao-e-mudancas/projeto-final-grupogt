@@ -17,7 +17,7 @@ function criarGrafico(id, valoresX, valoresY, cores, titulo, legenda) {
                 data: valoresY,
                 fill: false,
                 lineTension: 0,
-                borderWidth: 1
+                borderWidth: 1,
             }]
         },
         options: {
