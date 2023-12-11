@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar</title>
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/cross.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js"></script>
+    <script src="./../js/local-storage.js" defer></script>
+    <script src="./../js/pagina-adicionar.js" defer></script>
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+
+<body id="container-ad">
+    <section id="navegation">
+        <i class="fas fa-chart-bar main-icon"></i>
+        <ul>
+            <li class="left more-option">
+                <i class="fas fa-plus" id="more-menu" class="font-link"></i>
+
+            </li>
+            <div id="menu" class="sumir">
+                <li class="left">
+                    <a href="main.html" id="home"> <i class="fa-solid fa-house" class="font-link"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="./adicionar.html"> <i class="fas fa-wallet" class="font-link go"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="./configuracoes.html"> <i class="fa-solid fa-gear" class="font-link go"></i>
+                    </a>
+                </li>
+                <li class="left">
+                    <a href="#" link="./src/mais.html"> <i class="fas fa-ellipsis-h" class="font-link go"></i>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </section>
+    <section id="adicionar">
+        <section id="user-zone-ad">
+            <div id="month">
+                <select name="select-month" id="sele-month">
+                    <!--
+                        Espaço para as opções de mês
+                    <option value="2023-12">Dezembro - 2023</option>
+                    <option value="2023-04">Abril - 2023</option>
+                    <option value="2023-03">Março - 2023</option>
+                    <option value="2023-02">Fevereiro - 2023</option>
+                    <option value="2023-01">Janeiro - 2023</option>
+                    -->
+                </select>
+            </div>
+            <section id="user-data">
+            </section>
+        </section>
+        <section id="container-gasto">
+            <section id="despesas-cards">
+                <div class="title-section">
+                    <h2 id="despesa-title"><strong>Despesas</strong></h2>
+                    <button id="lose-button"><strong>+ NOVA DESPESA</strong></button>
+                </div>
+                <ul>
+                    <li class="box">
+                        <ul>
+                            <li>Despesas Pagas</li>
+                            <li><strong id="despesas-atuais">R$ 430,00</strong></li>
+                        </ul>
+                        <div class="icone"> <i class="fas fa-list"></i></i> </div>
+                    </li>
+                    <li class="box">
+                        <ul>
+                            <li>Despesas Pendentes</li>
+                            <li><strong id="despesas-agendadas">R$ 300,00</strong></li>
+                        </ul>
+                        <div class="icone"> <i class="fa-solid fa-arrow-down"></i> </div>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section id="container-ganho">
+            <section id="ganhos-cards">
+                <div class="title-section">
+                    <h2 id="receitas-title"><strong>Ganhos</strong></h2>
+                    <button id="win-button"><strong>+ NOVO GANHO</strong></button>
+                </div>
+                <ul>
+                    <li class="box">
+                        <ul>
+                            <li>Ganho</li>
+                            <li><strong id="ganhos-atuais">R$ 0</strong></li>
+                        </ul>
+                        <div class="icone-win"> <i class="fas fa-list"></i></i> </div>
+                    </li>
+                    <li class="box">
+                        <ul>
+                            <li>Agendado</li>
+                            <li><strong id="ganhos-agendados">R$ 100,00</strong></li>
+                        </ul>
+                        <div class="icone-win"> <i class="fa-solid fa-arrow-up"></i> </div>
+                    </li>
+                </ul>
+            </section>
+        </section>
+    </section>
+
+    <script src="../js/menu.js"></script>
+    <script src="https://kit.fontawesome.com/b3b34daf48.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

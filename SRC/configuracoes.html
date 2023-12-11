@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>configurações</title>
+  <link rel="stylesheet" href=".././style/index.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body id="container-config">
+  <section id="navegation">
+    <i class="fas fa-chart-bar main-icon"></i>
+    <ul>
+      <li class="left more-option">
+        <i class="fas fa-plus" id="more-menu" class="font-link"></i>
+
+      </li>
+      <div id="menu" class="sumir">
+        <li class="left">
+          <a href="main.html" id="home"> <i class="fa-solid fa-house" class="font-link"></i>
+          </a>
+        </li>
+        <li class="left">
+          <a href="adicionar.html"> <i class="fas fa-wallet" class="font-link go"></i>
+          </a>
+        </li>
+        <li class="left">
+          <a href="configuracoes.html"> <i class="fa-solid fa-gear" class="font-link go"></i>
+          </a>
+        </li>
+        <li class="left">
+          <a href="#" link="./src/mais.html"> <i class="fas fa-ellipsis-h" class="font-link go"></i>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </section>
+
+  <div class="info-card">
+    <div id="card-top">
+      <img id="perfil-img" src="../img/dom-vito-perfil.jpg" alt="Foto do Usuário">
+      <h2>Don Vito Corleone</h2>
+      <p id="email">domvitto@cine.com</p>
+    </div>
+
+    <div class="user-details">
+      <p><strong>Senha:</strong> ********</p>
+      <p><strong>Número de Telefone:</strong> (83) 9968-4912</p>
+      <p><strong>Endereço:</strong> Nova Iorque, center, nº 10</p>
+      <p><strong>Data de Nascimento:</strong> 07/12/1891</p>
+      <p><strong>Tempo de Atividade:</strong> 0 Ano e 9 Meses</p>
+    </div>
+    <button id="sair">Sair <i class="fas fa-sign-out-alt"></i> </button>
+  </div>
+
+  <script src="../js/menu.js"></script>
+  <script src="https://kit.fontawesome.com/b3b34daf48.js" crossorigin="anonymous"></script>
+
+  <script>
+    const logoff = document.querySelector('#sair').addEventListener('click', e => {
+    Swal.fire({
+        title: "Deseja realmente sair?",
+        showDenyButton: true,
+        confirmButtonText: "Sair",
+        denyButtonText: `Cancelar`
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire("Logoff relizado", "", "success");
+          setTimeout(_ => {
+            window.location.href = '../index.html'
+          }, 2000)
+        } else if (result.isDenied) {
+          Swal.fire("Logoff cancelado", "", "info");
+        }
+      });
+})
+  </script>
+</body>
+
+</html>
