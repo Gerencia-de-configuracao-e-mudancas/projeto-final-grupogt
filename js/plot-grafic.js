@@ -77,7 +77,7 @@ function criarGraficoBarra(id, valoresX, valoresY, cores, legenda) {
     });
 }
 
-//Chart do chat gpt
+//Funcao para criar o chart do circular da pagina main
 function funcaoGraficoDognut(id, valoresX, valoresY){
     // Sample data
 const data = {
@@ -99,22 +99,29 @@ const data = {
         data: data,
         options: {
             cutout: '78%',
-            /*plugins: {
+            plugins: {
                 tooltip: {
                     callbacks: {
                     label: (context) => {
-                        // Get the index of the hovered data point
+                        // Recebe o index do elemento sobre o mouse
                         const dataIndex = context.dataIndex;
                         
-                        // Get the corresponding label (category name) from the data
+                        // Recebe o label da categoria
                         const label = data.labels[dataIndex];
-                        
-                        // Return the label to be displayed in the tooltip
-                        return label;
+
+                        // Encontra a despesa correspondente e formata
+                        const resumo=retornarResumoDoMes()
+                        const posicaoNoResumo = resumo.descricao.findIndex((elementoLista)=>{return elementoLista == label});
+                        let saida = -resumo.despesa[posicaoNoResumo].toFixed(2);
+                        saida = "R$ " + saida;
+                        saida = saida.replace(".", ",");
+
+                        //Exibe saída na descrição do gráfico
+                        return saida;
                         },
                     },
                 },
-            },*/
+            },
         },
     };
     
